@@ -106,5 +106,24 @@ describe('Donationss', function (){
         });
 
     });
+	
+	describe('DELETE /donations', function () {
+        it('should GET all the donations', function(done) {
+            chai.request(server)
+                .delete('/donations/1000000')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.be.a('array');
+                    expect(res.body.length).to.equal(1);
+                    var result = _.map(res.body, function (donation) {
+                        return { id: donation.id,
+                            amount: donation.amount };
+                    });
+                   
+                    expect(result).to.include( { id: 1000001, amount: 1100  } );
+                    done();
+                });
+        });
+    });
 
 });
