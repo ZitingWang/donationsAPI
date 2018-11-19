@@ -11,7 +11,6 @@ branches:
 notifications:
    email:
       recipients:
-      - one@example.com      # change to your own address
-      - other@example.com    # uae other (optional)
-      on_success: never        # default: change
-      on_failure: always       # default: always
+      - 20082254@mail.wit.ie        
+      on_success: never        
+      on_failure: always       
